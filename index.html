@@ -2,2315 +2,1327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>THE CONSTITUTION IS OURS — Bangladesh</title>
+<title>PERSONAL CINEMA — Every Life Contains a Film</title>
+
+<meta name="description"
+content="Personal Cinema is a new cinematic movement transforming lived experience, digital memory, imagination and AI into personal films.">
 
 <style>
-
-/* =========================================================
-   THE CONSTITUTION IS OURS
-   Cinematic Constitutional Citizenship — Bangladesh
-
-   No framework.
-   No paid library.
-   No political-party branding.
-   Pure HTML / CSS / JavaScript.
-========================================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;900&family=Playfair+Display:wght@500;600;700;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 
 :root{
-
-    --black:#050706;
-    --deep:#08130f;
-    --green:#09271d;
-    --green2:#0e3a2a;
-
-    --white:#f4f0e5;
-    --cream:#e7dfce;
-    --gray:#929b95;
-
-    --red:#e51d2a;
-    --red-dark:#9d1018;
-
-    --gold:#b99a52;
-
-    --line:rgba(255,255,255,.14);
-
-    --serif:'Playfair Display', Georgia, serif;
-    --sans:'DM Sans', Arial, sans-serif;
+  --black:#080808;
+  --white:#f3f0e9;
+  --gray:#999;
+  --line:rgba(255,255,255,.15);
+  --accent:#d8c59a;
+  --serif:'Playfair Display',serif;
+  --sans:'Inter',sans-serif;
+  --mono:'DM Mono',monospace;
 }
-
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
-
 
 body{
-    background:var(--black);
-    color:var(--white);
-    font-family:var(--sans);
-    overflow-x:hidden;
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--sans);
+  overflow-x:hidden;
 }
 
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.035;
+  z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
 a{
-    color:inherit;
-    text-decoration:none;
+  color:inherit;
+  text-decoration:none;
 }
 
-
-/* =========================================================
-   NOISE / FILM GRAIN
-========================================================= */
-
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:9999;
-
-    opacity:.035;
-
-    background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
-
+button{
+  font-family:inherit;
 }
 
+section{
+  position:relative;
+}
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* NAVIGATION */
 
 nav{
-
-    position:fixed;
-
-    width:100%;
-
-    top:0;
-    left:0;
-
-    z-index:1000;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:24px 5%;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,.75),
-        transparent
-    );
-
-    backdrop-filter:blur(4px);
-
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 5vw;
+  mix-blend-mode:difference;
 }
 
-
-.brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    font-size:11px;
-
-    font-weight:700;
-
-    letter-spacing:3px;
-
+.logo{
+  font-family:var(--mono);
+  font-size:12px;
+  letter-spacing:.2em;
 }
-
-
-.brand-mark{
-
-    width:28px;
-    height:28px;
-
-    border:1px solid rgba(255,255,255,.6);
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    font-size:13px;
-
-}
-
-
-.brand-mark span{
-
-    color:var(--red);
-
-}
-
 
 .nav-links{
-
-    display:flex;
-
-    gap:30px;
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
+  display:flex;
+  gap:28px;
+  list-style:none;
+  font-family:var(--mono);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
 }
-
 
 .nav-links a{
-
-    color:#bbb;
-
-    transition:.3s;
-
+  opacity:.75;
+  transition:.3s;
 }
-
 
 .nav-links a:hover{
-
-    color:white;
-
+  opacity:1;
+  color:var(--accent);
 }
 
-
-.nav-links a:hover::after{
-
-    content:"";
-
-}
-
-
-/* =========================================================
-   HERO — BANGLADESH DELTA
-========================================================= */
+/* HERO */
 
 .hero{
-
-    min-height:100vh;
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    overflow:hidden;
-
-    background:
-
-    linear-gradient(
-        90deg,
-        rgba(2,10,7,.96) 0%,
-        rgba(2,10,7,.78) 35%,
-        rgba(2,10,7,.25) 75%,
-        rgba(2,10,7,.15) 100%
-    ),
-
-    url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2400&q=90");
-
-    background-size:cover;
-
-    background-position:center;
-
+  height:100vh;
+  min-height:700px;
+  display:flex;
+  align-items:flex-end;
+  padding:8vw 5vw;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.8)),
+    radial-gradient(circle at 70% 25%,#493d2b 0,#181510 35%,#080808 75%);
 }
 
-
-.hero::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:0;
-
-    height:300px;
-
-    background:
-    linear-gradient(
-        transparent,
-        var(--black)
-    );
-
+.hero-orbit{
+  position:absolute;
+  width:65vw;
+  height:65vw;
+  max-width:900px;
+  max-height:900px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:50%;
+  right:-15vw;
+  top:-20vw;
+  animation:rotate 45s linear infinite;
 }
 
+.hero-orbit:before,
+.hero-orbit:after{
+  content:"";
+  position:absolute;
+  border:1px solid rgba(216,197,154,.18);
+  border-radius:50%;
+}
+
+.hero-orbit:before{
+  inset:12%;
+}
+
+.hero-orbit:after{
+  inset:25%;
+}
+
+@keyframes rotate{
+  to{transform:rotate(360deg)}
+}
 
 .hero-content{
-
-    width:90%;
-
-    max-width:1400px;
-
-    margin:auto;
-
-    position:relative;
-
-    z-index:2;
-
+  position:relative;
+  max-width:1100px;
+  z-index:2;
 }
-
 
 .kicker{
-
-    font-size:11px;
-
-    letter-spacing:5px;
-
-    text-transform:uppercase;
-
-    color:#bbb;
-
-    margin-bottom:30px;
-
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:25px;
 }
-
-
-.kicker::before{
-
-    content:"";
-
-    display:inline-block;
-
-    width:35px;
-
-    height:1px;
-
-    background:var(--red);
-
-    vertical-align:middle;
-
-    margin-right:15px;
-
-}
-
 
 .hero h1{
-
-    font-family:var(--serif);
-
-    font-size:clamp(60px,10vw,155px);
-
-    line-height:.82;
-
-    letter-spacing:-7px;
-
-    max-width:1000px;
-
+  font-family:var(--serif);
+  font-size:clamp(70px,12vw,180px);
+  line-height:.78;
+  font-weight:400;
+  letter-spacing:-.07em;
 }
 
-
-.hero h1 span{
-
-    color:var(--red);
-
+.hero h1 em{
+  display:block;
+  padding-left:12vw;
+  color:var(--accent);
 }
-
 
 .hero-description{
-
-    max-width:620px;
-
-    margin-top:45px;
-
-    font-size:16px;
-
-    line-height:1.8;
-
-    color:#d2d5d0;
-
+  margin-top:50px;
+  max-width:530px;
+  font-size:15px;
+  line-height:1.8;
+  color:#bbb;
 }
 
-
-.hero-actions{
-
-    display:flex;
-
-    gap:15px;
-
-    margin-top:35px;
-
+.scroll{
+  position:absolute;
+  right:5vw;
+  bottom:45px;
+  writing-mode:vertical-rl;
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.2em;
+  color:#888;
 }
 
+/* INTRO */
 
-.btn{
-
-    padding:16px 25px;
-
-    border:1px solid rgba(255,255,255,.35);
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    transition:.3s;
-
+.intro{
+  min-height:100vh;
+  padding:15vw 10vw;
+  display:flex;
+  align-items:center;
 }
 
-
-.btn:hover{
-
-    background:white;
-
-    color:black;
-
+.intro-inner{
+  max-width:1000px;
 }
 
-
-.btn.primary{
-
-    background:var(--red);
-
-    border-color:var(--red);
-
+.intro-number{
+  font-family:var(--mono);
+  color:var(--accent);
+  font-size:11px;
+  margin-bottom:30px;
 }
 
-
-.btn.primary:hover{
-
-    background:white;
-
-    border-color:white;
-
+.intro h2{
+  font-family:var(--serif);
+  font-size:clamp(45px,7vw,100px);
+  font-weight:400;
+  line-height:1.05;
 }
 
-
-.hero-coordinate{
-
-    position:absolute;
-
-    right:5%;
-
-    bottom:80px;
-
-    z-index:4;
-
-    writing-mode:vertical-rl;
-
-    color:#aaa;
-
-    font-size:9px;
-
-    letter-spacing:4px;
-
+.intro h2 span{
+  color:#666;
 }
 
-
-/* =========================================================
-   DELTA INTRO
-========================================================= */
-
-.delta{
-
-    min-height:100vh;
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    background:var(--black);
-
+.intro p{
+  margin-top:50px;
+  max-width:650px;
+  color:#aaa;
+  line-height:1.9;
+  font-size:16px;
 }
 
+/* EXPERIENCE */
 
-.delta-image{
-
-    min-height:700px;
-
-    background:
-
-    linear-gradient(
-        rgba(0,0,0,.05),
-        rgba(0,0,0,.65)
-    ),
-
-    url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85");
-
-    background-size:cover;
-
-    background-position:center;
-
+.experience{
+  padding:10vw 5vw;
+  border-top:1px solid var(--line);
 }
 
-
-.delta-text{
-
-    display:flex;
-
-    align-items:center;
-
-    padding:10%;
-
+.section-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:90px;
 }
 
-
-.delta-text h2{
-
-    font-family:var(--serif);
-
-    font-size:clamp(45px,6vw,85px);
-
-    line-height:.95;
-
+.section-number{
+  font-family:var(--mono);
+  color:var(--accent);
+  font-size:11px;
 }
-
-
-.delta-text h2 span{
-
-    color:var(--red);
-
-}
-
-
-.delta-text p{
-
-    color:#999;
-
-    line-height:1.8;
-
-    max-width:560px;
-
-    margin-top:35px;
-
-    font-size:17px;
-
-}
-
-
-/* =========================================================
-   BIG MANIFESTO
-========================================================= */
-
-.manifesto{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    padding:12% 8%;
-
-    background:
-
-    linear-gradient(
-        rgba(4,18,13,.85),
-        rgba(4,18,13,.95)
-    ),
-
-    url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=2200&q=90");
-
-    background-size:cover;
-
-    background-position:center;
-
-}
-
-
-.manifesto-inner{
-
-    max-width:1300px;
-
-}
-
-
-.manifesto-label{
-
-    color:var(--red);
-
-    letter-spacing:4px;
-
-    font-size:11px;
-
-    margin-bottom:40px;
-
-}
-
-
-.manifesto h2{
-
-    font-family:var(--serif);
-
-    font-size:clamp(45px,7vw,105px);
-
-    line-height:1;
-
-}
-
-
-.manifesto h2 .red{
-
-    color:var(--red);
-
-}
-
-
-.manifesto h2 .line{
-
-    display:block;
-
-    margin-left:10vw;
-
-}
-
-
-.manifesto p{
-
-    max-width:700px;
-
-    margin-top:60px;
-
-    color:#aaa;
-
-    font-size:18px;
-
-    line-height:1.8;
-
-}
-
-
-/* =========================================================
-   RIVER / POWER VISUAL
-========================================================= */
-
-.power{
-
-    padding:130px 7%;
-
-    background:#07110d;
-
-}
-
-
-.section-label{
-
-    color:var(--red);
-
-    font-size:10px;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    margin-bottom:20px;
-
-}
-
 
 .section-title{
-
-    font-family:var(--serif);
-
-    font-size:clamp(45px,7vw,100px);
-
-    line-height:.9;
-
+  font-family:var(--serif);
+  font-size:clamp(45px,6vw,85px);
+  font-weight:400;
+  line-height:.9;
 }
 
-
-.section-description{
-
-    max-width:700px;
-
-    color:#888;
-
-    margin-top:30px;
-
-    line-height:1.8;
-
+.section-note{
+  max-width:280px;
+  color:#777;
+  font-size:12px;
+  line-height:1.7;
 }
 
-
-/* =========================================================
-   INTERACTIVE POWER RIVER
-========================================================= */
-
-.river-map{
-
-    position:relative;
-
-    max-width:1100px;
-
-    height:600px;
-
-    margin:90px auto 0;
-
-    overflow:hidden;
-
-    border:1px solid var(--line);
-
-    background:
-
-    radial-gradient(
-        ellipse at center,
-        rgba(30,100,70,.45),
-        transparent 65%
-    );
-
+.experience-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
 }
 
-
-.river{
-
-    position:absolute;
-
-    left:50%;
-
-    top:-20%;
-
-    width:220px;
-
-    height:140%;
-
-    transform:translateX(-50%) rotate(7deg);
-
-    background:
-
-    linear-gradient(
-        90deg,
-        transparent,
-        rgba(64,125,102,.45),
-        rgba(24,71,55,.7),
-        rgba(64,125,102,.45),
-        transparent
-    );
-
-    filter:blur(2px);
-
+.experience-card{
+  min-height:450px;
+  padding:35px;
+  background:#080808;
+  position:relative;
+  overflow:hidden;
+  transition:.5s;
 }
 
-
-.river-line{
-
-    position:absolute;
-
-    left:50%;
-
-    top:0;
-
-    width:3px;
-
-    height:100%;
-
-    background:rgba(255,255,255,.25);
-
+.experience-card:hover{
+  background:#111;
+  transform:translateY(-8px);
 }
 
-
-.power-node{
-
-    position:absolute;
-
-    width:155px;
-
-    height:155px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(255,255,255,.35);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    font-size:12px;
-
-    letter-spacing:1px;
-
-    background:rgba(0,0,0,.65);
-
-    backdrop-filter:blur(10px);
-
-    cursor:pointer;
-
-    transition:.5s;
-
+.card-number{
+  font-family:var(--mono);
+  font-size:10px;
+  color:#666;
 }
 
-
-.power-node:hover{
-
-    transform:scale(1.12);
-
-    border-color:var(--red);
-
-    box-shadow:
-    0 0 70px rgba(229,29,42,.25);
-
+.card-icon{
+  font-size:55px;
+  margin-top:90px;
+  filter:grayscale(1);
 }
 
-
-.power-node.citizen{
-
-    width:190px;
-    height:190px;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    border:3px solid var(--red);
-
-    font-weight:700;
-
+.experience-card h3{
+  font-family:var(--serif);
+  font-size:32px;
+  font-weight:400;
+  margin-top:45px;
 }
 
-
-.power-node.citizen:hover{
-
-    transform:translate(-50%,-50%) scale(1.08);
-
+.experience-card p{
+  margin-top:15px;
+  color:#777;
+  font-size:12px;
+  line-height:1.7;
 }
 
+/* CINEMA TYPES */
 
-.node-power{
-
-    left:50%;
-    top:8%;
-
-    transform:translateX(-50%);
-
+.formats{
+  padding:12vw 5vw;
+  background:#eeeae1;
+  color:#111;
 }
 
-
-.node-state{
-
-    right:8%;
-    top:42%;
-
+.formats .section-number{
+  color:#806d45;
 }
 
-
-.node-constitution{
-
-    left:8%;
-    top:42%;
-
+.formats .section-title{
+  color:#111;
 }
 
-
-/* =========================================================
-   CITIZEN TEST
-========================================================= */
-
-.test{
-
-    padding:140px 7%;
-
-    background:var(--cream);
-
-    color:#101412;
-
+.format-list{
+  margin-top:80px;
+  border-top:1px solid #bbb;
 }
 
-
-.test .section-label{
-
-    color:#a40e16;
-
+.format{
+  display:grid;
+  grid-template-columns:100px 1fr 250px;
+  align-items:center;
+  padding:35px 0;
+  border-bottom:1px solid #bbb;
+  transition:.3s;
 }
 
-
-.test-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:80px;
-
-    margin-top:70px;
-
+.format:hover{
+  padding-left:20px;
 }
 
-
-.question-box{
-
-    border-top:2px solid #111;
-
-    padding-top:30px;
-
+.format-num{
+  font-family:var(--mono);
+  font-size:11px;
+  color:#777;
 }
 
-
-.question{
-
-    font-family:var(--serif);
-
-    font-size:38px;
-
-    line-height:1.1;
-
+.format h3{
+  font-family:var(--serif);
+  font-size:38px;
+  font-weight:400;
 }
 
-
-.answers{
-
-    margin-top:40px;
-
-    display:grid;
-
-    gap:10px;
-
+.format p{
+  font-size:11px;
+  color:#777;
+  line-height:1.6;
 }
 
+/* MANIFESTO */
 
-.answer{
-
-    padding:20px;
-
-    border:1px solid #bbb;
-
-    background:transparent;
-
-    cursor:pointer;
-
-    text-align:left;
-
-    font-family:var(--sans);
-
-    transition:.3s;
-
+.manifesto{
+  min-height:100vh;
+  padding:15vw 10vw;
+  display:flex;
+  align-items:center;
+  background:
+    radial-gradient(circle at center,#201d18 0,#080808 60%);
 }
 
-
-.answer:hover{
-
-    background:#111;
-
-    color:white;
-
+.manifesto-text{
+  max-width:1000px;
 }
 
-
-.answer.correct{
-
-    background:var(--red);
-
-    color:white;
-
-    border-color:var(--red);
-
+.manifesto-line{
+  font-family:var(--serif);
+  font-size:clamp(30px,5vw,75px);
+  line-height:1.15;
+  margin:18px 0;
+  color:#333;
+  transition:color .7s;
 }
 
-
-.answer.wrong{
-
-    opacity:.45;
-
+.manifesto-line.active{
+  color:var(--white);
 }
 
-
-.test-result{
-
-    margin-top:30px;
-
-    font-size:15px;
-
-    line-height:1.7;
-
-    display:none;
-
+.manifesto-line em{
+  color:var(--accent);
 }
 
+/* AI */
 
-/* =========================================================
-   REFORM OBSERVATORY
-========================================================= */
-
-.observatory{
-
-    padding:140px 7%;
-
-    background:#050706;
-
+.ai{
+  padding:12vw 5vw;
+  border-top:1px solid var(--line);
 }
 
-
-.observatory-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:1px;
-
-    background:var(--line);
-
-    margin-top:70px;
-
+.ai-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10vw;
+  align-items:center;
 }
 
-
-.observation{
-
-    min-height:310px;
-
-    padding:35px;
-
-    background:#09100d;
-
-    transition:.4s;
-
-    cursor:pointer;
-
+.ai h2{
+  font-family:var(--serif);
+  font-size:clamp(50px,7vw,100px);
+  font-weight:400;
+  line-height:.95;
 }
 
-
-.observation:hover{
-
-    background:#10251b;
-
+.ai h2 em{
+  color:var(--accent);
 }
 
-
-.observation-number{
-
-    color:var(--red);
-
-    font-size:11px;
-
-    letter-spacing:2px;
-
+.ai-copy{
+  color:#999;
+  line-height:1.9;
+  font-size:14px;
 }
 
-
-.observation h3{
-
-    font-family:var(--serif);
-
-    font-size:27px;
-
-    margin-top:55px;
-
+.ai-wheel{
+  margin-top:50px;
+  border:1px solid var(--line);
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
 }
 
-
-.observation p{
-
-    color:#777;
-
-    line-height:1.7;
-
-    margin-top:20px;
-
+.ai-wheel span{
+  position:absolute;
+  font-family:var(--mono);
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
 }
 
+.ai-wheel span:nth-child(1){top:20px}
+.ai-wheel span:nth-child(2){right:5px}
+.ai-wheel span:nth-child(3){bottom:20px}
+.ai-wheel span:nth-child(4){left:5px}
 
-.score{
-
-    margin-top:25px;
-
-    display:flex;
-
-    gap:5px;
-
+.ai-core{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:#d8c59a;
+  color:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-family:var(--mono);
+  font-size:9px;
 }
 
+/* ETHICS */
 
-.score i{
-
-    width:18px;
-
-    height:3px;
-
-    background:#444;
-
+.ethics{
+  padding:12vw 5vw;
+  background:#111;
 }
 
-
-.score i.active{
-
-    background:var(--red);
-
+.ethics-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  margin-top:80px;
+  background:var(--line);
 }
 
-
-/* =========================================================
-   BANGLADESH LANDSCAPE STRIP
-========================================================= */
-
-.landscape{
-
-    height:75vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    background:
-
-    linear-gradient(
-        rgba(0,20,12,.35),
-        rgba(0,0,0,.75)
-    ),
-
-    url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2400&q=90");
-
-    background-size:cover;
-
-    background-position:center;
-
+.ethic{
+  padding:50px 35px;
+  background:#111;
+  min-height:250px;
 }
 
-
-.landscape h2{
-
-    font-family:var(--serif);
-
-    font-size:clamp(50px,8vw,120px);
-
-    line-height:.9;
-
+.ethic h3{
+  font-family:var(--serif);
+  font-size:28px;
+  font-weight:400;
 }
 
-
-.landscape h2 span{
-
-    color:var(--red);
-
+.ethic p{
+  color:#777;
+  margin-top:20px;
+  line-height:1.7;
+  font-size:12px;
 }
 
+/* ARCHIVE */
 
-/* =========================================================
-   SIX PRINCIPLES
-========================================================= */
-
-.principles{
-
-    padding:140px 7%;
-
-    background:var(--cream);
-
-    color:#111;
-
+.archive{
+  padding:12vw 5vw;
 }
 
-
-.principle-list{
-
-    margin-top:70px;
-
-    border-top:1px solid #999;
-
+.archive-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:80px;
 }
 
-
-.principle{
-
-    display:grid;
-
-    grid-template-columns:100px 1fr 1fr;
-
-    gap:40px;
-
-    padding:35px 0;
-
-    border-bottom:1px solid #aaa;
-
+.archive-card{
+  height:420px;
+  background:
+    linear-gradient(180deg,transparent 30%,rgba(0,0,0,.9)),
+    linear-gradient(135deg,#27312d,#62513a,#191919);
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
 }
 
-
-.principle-number{
-
-    color:#b4141b;
-
-    font-weight:bold;
-
+.archive-card:nth-child(2){
+  background:
+    linear-gradient(180deg,transparent 30%,rgba(0,0,0,.9)),
+    linear-gradient(135deg,#3b4143,#9a8667,#181818);
 }
 
-
-.principle h3{
-
-    font-family:var(--serif);
-
-    font-size:30px;
-
+.archive-card:nth-child(3){
+  background:
+    linear-gradient(180deg,transparent 30%,rgba(0,0,0,.9)),
+    linear-gradient(135deg,#223c44,#526f6a,#111);
 }
 
-
-.principle p{
-
-    color:#666;
-
-    line-height:1.7;
-
+.archive-card:nth-child(4){
+  background:
+    linear-gradient(180deg,transparent 30%,rgba(0,0,0,.9)),
+    linear-gradient(135deg,#594332,#1c2928,#080808);
 }
 
-
-/* =========================================================
-   JOIN
-========================================================= */
-
-.join{
-
-    min-height:90vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:100px 7%;
-
-    background:
-
-    linear-gradient(
-        rgba(0,0,0,.68),
-        rgba(0,0,0,.94)
-    ),
-
-    url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2400&q=90");
-
-    background-size:cover;
-
-    background-position:center;
-
+.archive-card:nth-child(5){
+  background:
+    linear-gradient(180deg,transparent 30%,rgba(0,0,0,.9)),
+    linear-gradient(135deg,#303c54,#806d58,#111);
 }
 
-
-.join h2{
-
-    font-family:var(--serif);
-
-    font-size:clamp(55px,9vw,140px);
-
-    line-height:.83;
-
+.archive-card:nth-child(6){
+  background:
+    linear-gradient(180deg,transparent 30%,rgba(0,0,0,.9)),
+    linear-gradient(135deg,#5c5240,#273c3b,#080808);
 }
 
-
-.join h2 span{
-
-    color:var(--red);
-
+.archive-info{
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  right:25px;
 }
 
-
-.join p{
-
-    max-width:700px;
-
-    margin:40px auto;
-
-    color:#aaa;
-
-    line-height:1.8;
-
+.archive-info small{
+  font-family:var(--mono);
+  color:var(--accent);
+  font-size:9px;
 }
 
+.archive-info h3{
+  font-family:var(--serif);
+  font-size:30px;
+  font-weight:400;
+  margin-top:8px;
+}
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.archive-info p{
+  color:#aaa;
+  font-size:10px;
+  margin-top:7px;
+}
+
+/* PARTICIPATE */
+
+.participate{
+  min-height:80vh;
+  padding:12vw 10vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:#e9e4d9;
+  color:#111;
+}
+
+.participate h2{
+  font-family:var(--serif);
+  font-size:clamp(55px,9vw,130px);
+  font-weight:400;
+  line-height:.85;
+}
+
+.participate h2 em{
+  color:#776542;
+}
+
+.participate p{
+  max-width:500px;
+  margin:45px auto;
+  color:#666;
+  line-height:1.8;
+  font-size:14px;
+}
+
+.cta{
+  display:inline-block;
+  border:1px solid #222;
+  padding:17px 28px;
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.cta:hover{
+  background:#111;
+  color:white;
+}
+
+/* FOOTER */
 
 footer{
-
-    padding:45px 7%;
-
-    background:#020302;
-
-    border-top:1px solid #222;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    color:#666;
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
+  padding:80px 5vw 35px;
+  background:#080808;
 }
 
-
-.footer-red{
-
-    color:var(--red);
-
+.footer-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
 }
 
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-.reveal{
-
-    opacity:0;
-
-    transform:translateY(40px);
-
-    transition:
-
-    opacity 1s ease,
-
-    transform 1s ease;
-
+.footer-logo{
+  font-family:var(--serif);
+  font-size:55px;
 }
 
-
-.reveal.visible{
-
-    opacity:1;
-
-    transform:translateY(0);
-
+.footer-tag{
+  color:#777;
+  max-width:280px;
+  font-size:12px;
+  line-height:1.7;
 }
 
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media(max-width:900px){
-
-    .nav-links{
-
-        display:none;
-
-    }
-
-
-    .delta{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .delta-image{
-
-        min-height:500px;
-
-    }
-
-
-    .test-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .observatory-grid{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-
-    .principle{
-
-        grid-template-columns:60px 1fr;
-
-    }
-
-
-    .principle p{
-
-        grid-column:2;
-
-    }
-
-
-    .power-node{
-
-        transform:scale(.75);
-
-    }
-
+.footer-bottom{
+  margin-top:120px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  font-family:var(--mono);
+  font-size:9px;
+  color:#555;
 }
 
+/* RESPONSIVE */
 
-@media(max-width:600px){
+@media(max-width:850px){
 
-    .hero h1{
+  .nav-links{
+    display:none;
+  }
 
-        letter-spacing:-3px;
+  .hero{
+    padding:12vw 7vw;
+  }
 
-    }
+  .hero h1{
+    font-size:20vw;
+  }
 
+  .experience-grid,
+  .ethics-grid,
+  .archive-grid{
+    grid-template-columns:1fr;
+  }
 
-    .hero-description{
+  .experience-card{
+    min-height:350px;
+  }
 
-        font-size:14px;
+  .format{
+    grid-template-columns:60px 1fr;
+    gap:15px;
+  }
 
-    }
+  .format p{
+    grid-column:2;
+  }
 
+  .ai-grid{
+    grid-template-columns:1fr;
+  }
 
-    .hero-coordinate{
+  .ai-wheel{
+    width:260px;
+    height:260px;
+  }
 
-        display:none;
-
-    }
-
-
-    .observatory-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .river-map{
-
-        height:500px;
-
-    }
-
-
-    .power-node{
-
-        transform:scale(.6);
-
-    }
-
-
-    .power-node.citizen{
-
-        transform:translate(-50%,-50%) scale(.65);
-
-    }
-
-
-    .principle{
-
-        display:block;
-
-    }
-
-
-    .principle-number{
-
-        margin-bottom:15px;
-
-    }
-
-
-    .principle p{
-
-        margin-top:15px;
-
-    }
-
-
-    footer{
-
-        flex-direction:column;
-
-        gap:15px;
-
-    }
-
+  .footer-top{
+    flex-direction:column;
+    gap:30px;
+  }
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =======================================================
-     NAVIGATION
-======================================================= -->
-
 <nav>
+  <a href="#" class="logo">PERSONAL CINEMA®</a>
 
-    <div class="brand">
-
-        <div class="brand-mark">
-            <span>●</span>
-        </div>
-
-        <div>
-            CONSTITUTIONAL<br>
-            CITIZENSHIP
-        </div>
-
-    </div>
-
-
-    <div class="nav-links">
-
-        <a href="#why">Why</a>
-
-        <a href="#power">Power</a>
-
-        <a href="#test">Citizen Test</a>
-
-        <a href="#reform">Reform Watch</a>
-
-        <a href="#stand">Our Stand</a>
-
-    </div>
-
+  <ul class="nav-links">
+    <li><a href="#movement">Movement</a></li>
+    <li><a href="#formats">Formats</a></li>
+    <li><a href="#manifesto">Manifesto</a></li>
+    <li><a href="#archive">Archive</a></li>
+    <li><a href="#create">Create</a></li>
+  </ul>
 </nav>
 
 
-<!-- =======================================================
-     HERO
-======================================================= -->
+<!-- HERO -->
 
-<header class="hero">
+<section class="hero">
 
-    <div class="hero-content">
+  <div class="hero-orbit"></div>
 
-        <div class="kicker">
-            A Civic Constitutional Movement
-        </div>
+  <div class="hero-content">
 
-
-        <h1>
-
-            THE<br>
-
-            CONSTITUTION<br>
-
-            <span>IS OURS.</span>
-
-        </h1>
-
-
-        <p class="hero-description">
-
-            We are citizens of Bangladesh.
-
-            We do not belong to politicians.
-
-            We believe political power must remain
-            accountable to the constitutional citizen.
-
-        </p>
-
-
-        <div class="hero-actions">
-
-            <a class="btn primary" href="#stand">
-                Our Stand →
-            </a>
-
-            <a class="btn" href="#power">
-                Enter The Movement
-            </a>
-
-        </div>
-
+    <div class="kicker">
+      A new language of cinematic expression
     </div>
 
+    <h1>
+      YOUR LIFE
+      <em>IS CINEMA.</em>
+    </h1>
 
-    <div class="hero-coordinate">
-
-        BANGLADESH · DELTA · CITIZEN · CONSTITUTION
-
-    </div>
-
-</header>
-
-
-<!-- =======================================================
-     WHY
-======================================================= -->
-
-<section class="delta" id="why">
-
-    <div class="delta-image"></div>
-
-
-    <div class="delta-text reveal">
-
-        <div>
-
-            <div class="section-label">
-                01 — THE QUESTION
-            </div>
-
-
-            <h2>
-
-                WHAT HAPPENS<br>
-
-                TO THE<br>
-
-                <span>CITIZEN?</span>
-
-            </h2>
-
-
-            <p>
-
-                Bangladesh is a delta.
-
-                Rivers divide land, create land,
-                destroy land and create new life.
-
-                Political power can behave in the same way.
-
-                It can build institutions.
-
-                It can also erode them.
-
-                The citizen stands where those forces meet.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =======================================================
-     BIG STATEMENT
-======================================================= -->
-
-<section class="manifesto">
-
-    <div class="manifesto-inner reveal">
-
-        <div class="manifesto-label">
-            02 — THE POSITION
-        </div>
-
-
-        <h2>
-
-            NOT ANTI-REFORM.
-
-            <span class="line">
-                ANTI-<span class="red">CAPTURE.</span>
-            </span>
-
-        </h2>
-
-
-        <p>
-
-            We oppose constitutional abuse.
-
-            We oppose constitutional capture.
-
-            We believe constitutional reform can be necessary,
-            but reform must strengthen citizenship rather than
-            become a mechanism for temporary political control.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =======================================================
-     POWER MAP
-======================================================= -->
-
-<section class="power" id="power">
-
-    <div class="section-label">
-        03 — THE POWER MAP
-    </div>
-
-
-    <h2 class="section-title">
-        WHO SERVES<br>
-        WHOM?
-    </h2>
-
-
-    <p class="section-description">
-
-        Imagine Bangladesh as a river system.
-
-        Political power flows through government,
-        institutions and law.
-
-        But the constitutional system should ultimately
-        flow toward the citizen.
-
+    <p class="hero-description">
+      Personal Cinema transforms lived experience, digital memory,
+      imagination and artificial intelligence into cinematic expression.
+      No studio. No permission. No fixed format.
+      Begin with your life.
     </p>
 
+  </div>
 
-    <div class="river-map">
-
-        <div class="river"></div>
-
-        <div class="river-line"></div>
-
-
-        <div class="power-node node-power">
-            POLITICAL<br>
-            POWER
-        </div>
-
-
-        <div class="power-node node-state">
-            STATE<br>
-            INSTITUTIONS
-        </div>
-
-
-        <div class="power-node node-constitution">
-            CONSTITUTION
-        </div>
-
-
-        <div class="power-node citizen">
-            THE<br>
-            CITIZEN
-        </div>
-
-    </div>
+  <div class="scroll">
+    SCROLL TO ENTER THE FILM
+  </div>
 
 </section>
 
 
-<!-- =======================================================
-     CITIZEN TEST
-======================================================= -->
+<!-- INTRO -->
 
-<section class="test" id="test">
+<section class="intro" id="movement">
 
-    <div class="section-label">
-        04 — THE CITIZEN TEST
-    </div>
+  <div class="intro-inner">
 
+    <div class="intro-number">01 / THE MOVEMENT</div>
 
-    <h2 class="section-title">
-        BEFORE YOU<br>
-        SUPPORT REFORM
+    <h2>
+      Cinema no longer has to begin
+      <span>with a screenplay.</span>
+      It can begin with a life.
     </h2>
 
-
-    <div class="test-grid">
-
-
-        <div class="question-box">
-
-            <div class="question">
-
-                A constitutional reform
-                gives political authority
-                greater power.
-
-                What should citizens
-                ask first?
-
-            </div>
-
-        </div>
-
-
-        <div>
-
-            <div class="answers">
-
-                <button
-                    class="answer"
-                    onclick="answer(1,this)"
-                >
-                    A — Which party proposed it?
-                </button>
-
-
-                <button
-                    class="answer"
-                    onclick="answer(2,this)"
-                >
-                    B — Who wins politically?
-                </button>
-
-
-                <button
-                    class="answer"
-                    onclick="answer(3,this)"
-                >
-                    C — What happens to the citizen?
-                </button>
-
-
-                <button
-                    class="answer"
-                    onclick="answer(4,this)"
-                >
-                    D — Who controls the government?
-                </button>
-
-            </div>
-
-
-            <div
-                class="test-result"
-                id="testResult"
-            ></div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =======================================================
-     REFORM OBSERVATORY
-======================================================= -->
-
-<section class="observatory" id="reform">
-
-    <div class="section-label">
-        05 — REFORM OBSERVATORY
-    </div>
-
-
-    <h2 class="section-title">
-        REFORM<br>
-        OR CAPTURE?
-    </h2>
-
-
-    <p class="section-description">
-
-        Every major constitutional proposal can be examined
-        through the same citizen-centred questions.
-
+    <p>
+      A phone recording. A voice message. A photograph.
+      A journey. A breakup. A parent aging. A political event.
+      A disappearing landscape. A lonely night.
+      These fragments already contain cinema.
+      The filmmaker's task is to discover the film hidden inside life.
     </p>
 
-
-    <div class="observatory-grid">
-
-
-        <div class="observation">
-
-            <div class="observation-number">
-                01
-            </div>
-
-            <h3>
-                Accountability
-            </h3>
-
-            <p>
-                Does this change make political
-                authority more accountable?
-            </p>
-
-            <div class="score">
-                <i class="active"></i>
-                <i class="active"></i>
-                <i></i>
-                <i></i>
-                <i></i>
-            </div>
-
-        </div>
-
-
-        <div class="observation">
-
-            <div class="observation-number">
-                02
-            </div>
-
-            <h3>
-                Rights
-            </h3>
-
-            <p>
-                Does it strengthen protection
-                of constitutional rights?
-            </p>
-
-            <div class="score">
-                <i class="active"></i>
-                <i class="active"></i>
-                <i class="active"></i>
-                <i></i>
-                <i></i>
-            </div>
-
-        </div>
-
-
-        <div class="observation">
-
-            <div class="observation-number">
-                03
-            </div>
-
-            <h3>
-                Power
-            </h3>
-
-            <p>
-                Does it concentrate political
-                power in fewer hands?
-            </p>
-
-            <div class="score">
-                <i class="active"></i>
-                <i class="active"></i>
-                <i class="active"></i>
-                <i class="active"></i>
-                <i></i>
-            </div>
-
-        </div>
-
-
-        <div class="observation">
-
-            <div class="observation-number">
-                04
-            </div>
-
-            <h3>
-                Participation
-            </h3>
-
-            <p>
-                Did citizens meaningfully participate
-                in the process?
-            </p>
-
-            <div class="score">
-                <i class="active"></i>
-                <i></i>
-                <i></i>
-                <i></i>
-                <i></i>
-            </div>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
 
-<!-- =======================================================
-     BANGLADESH LANDSCAPE
-======================================================= -->
+<!-- EXPERIENCE TO CINEMA -->
 
-<section class="landscape">
+<section class="experience">
 
-    <div class="reveal">
+  <div class="section-header">
 
-        <div class="section-label">
-            BANGLADESH
-        </div>
-
-
-        <h2>
-
-            WE LIVE<br>
-
-            <span>INSIDE THE DELTA.</span>
-
-        </h2>
-
+    <div>
+      <div class="section-number">02 / CINEMATIC TRANSFORMATION</div>
+      <div class="section-title">
+        FROM LIFE<br>TO CINEMA
+      </div>
     </div>
+
+    <div class="section-note">
+      Reality provides the material.
+      Memory provides the meaning.
+      Imagination creates another reality.
+    </div>
+
+  </div>
+
+
+  <div class="experience-grid">
+
+    <article class="experience-card">
+
+      <div class="card-number">01 / REALITY</div>
+
+      <div class="card-icon">◉</div>
+
+      <h3>Experience</h3>
+
+      <p>
+        Something happens to you.
+        A place, person, conflict, journey,
+        relationship or moment becomes part of your life.
+      </p>
+
+    </article>
+
+
+    <article class="experience-card">
+
+      <div class="card-number">02 / MEMORY</div>
+
+      <div class="card-icon">◌</div>
+
+      <h3>Remember</h3>
+
+      <p>
+        Photographs, recordings, messages,
+        diaries and fragments preserve
+        what reality begins to forget.
+      </p>
+
+    </article>
+
+
+    <article class="experience-card">
+
+      <div class="card-number">03 / IMAGINATION</div>
+
+      <div class="card-icon">✦</div>
+
+      <h3>Imagine</h3>
+
+      <p>
+        What could not be photographed
+        can still be imagined.
+        Memory becomes poetic space.
+      </p>
+
+    </article>
+
+
+    <article class="experience-card">
+
+      <div class="card-number">04 / CINEMA</div>
+
+      <div class="card-icon">△</div>
+
+      <h3>Transform</h3>
+
+      <p>
+        Editing creates relationships between
+        reality, memory, sound, silence,
+        imagination and time.
+      </p>
+
+    </article>
+
+  </div>
 
 </section>
 
 
-<!-- =======================================================
-     SIX PRINCIPLES
-======================================================= -->
+<!-- FORMATS -->
 
-<section class="principles" id="stand">
+<section class="formats" id="formats">
 
-    <div class="section-label">
-        06 — OUR STAND
+  <div class="section-number">03 / NO FIXED FORMAT</div>
+
+  <div class="section-title">
+    THE FORM<br>FOLLOWS THE LIFE.
+  </div>
+
+  <div class="format-list">
+
+    <div class="format">
+      <div class="format-num">01</div>
+      <h3>Reel</h3>
+      <p>A single emotion compressed into seconds.</p>
     </div>
 
+    <div class="format">
+      <div class="format-num">02</div>
+      <h3>Short Film</h3>
+      <p>One experience. One transformation.</p>
+    </div>
 
-    <h2 class="section-title">
-        SIX PRINCIPLES
+    <div class="format">
+      <div class="format-num">03</div>
+      <h3>Essay Film</h3>
+      <p>A personal question becomes cinematic research.</p>
+    </div>
+
+    <div class="format">
+      <div class="format-num">04</div>
+      <h3>Documentary</h3>
+      <p>Reality observed through the filmmaker's life.</p>
+    </div>
+
+    <div class="format">
+      <div class="format-num">05</div>
+      <h3>Series</h3>
+      <p>A life unfolding across episodes and years.</p>
+    </div>
+
+    <div class="format">
+      <div class="format-num">06</div>
+      <h3>Experimental</h3>
+      <p>Memory, sound, image and imagination without rules.</p>
+    </div>
+
+    <div class="format">
+      <div class="format-num">07</div>
+      <h3>Interactive Cinema</h3>
+      <p>The audience chooses which memory to enter.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MANIFESTO -->
+
+<section class="manifesto" id="manifesto">
+
+  <div class="manifesto-text">
+
+    <div class="section-number">04 / MANIFESTO</div>
+
+    <div class="manifesto-line">
+      Every human life contains a film.
+    </div>
+
+    <div class="manifesto-line">
+      A phone can become a cinema.
+    </div>
+
+    <div class="manifesto-line">
+      A voice message can become a monologue.
+    </div>
+
+    <div class="manifesto-line">
+      A photograph can become a scene.
+    </div>
+
+    <div class="manifesto-line">
+      Memory can become narrative.
+    </div>
+
+    <div class="manifesto-line">
+      Imagination can become <em>cinema.</em>
+    </div>
+
+    <div class="manifesto-line">
+      Your life is not merely content.
+    </div>
+
+    <div class="manifesto-line">
+      <em>It is material.</em>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- AI -->
+
+<section class="ai">
+
+  <div class="ai-grid">
+
+    <div>
+
+      <div class="section-number">05 / AI + IMAGINATION</div>
+
+      <h2>
+        SHOW WHAT
+        <em>MEMORY</em>
+        CANNOT PHOTOGRAPH.
+      </h2>
+
+    </div>
+
+    <div>
+
+      <p class="ai-copy">
+        Artificial intelligence becomes an imagination layer.
+        It can reconstruct a lost room, visualize a childhood,
+        create impossible landscapes, transform dreams,
+        animate photographs or build cinematic spaces
+        that never physically existed.
+        <br><br>
+        But the boundary matters:
+        imagination should not be falsely presented as documentary evidence.
+      </p>
+
+      <div class="ai-wheel">
+
+        <span>REALITY</span>
+        <span>MEMORY</span>
+        <span>IMAGINATION</span>
+        <span>AI</span>
+
+        <div class="ai-core">
+          CINEMA<br>ENGINE
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ETHICS -->
+
+<section class="ethics">
+
+  <div class="section-number">06 / THE ETHICS</div>
+
+  <div class="section-title">
+    FREEDOM<br>NEEDS RESPONSIBILITY.
+  </div>
+
+
+  <div class="ethics-grid">
+
+    <article class="ethic">
+      <h3>Consent</h3>
+      <p>
+        Your experience belongs to you.
+        Other people's identities and private lives
+        require consideration and consent.
+      </p>
+    </article>
+
+    <article class="ethic">
+      <h3>Truth</h3>
+      <p>
+        Fiction, reconstruction and AI should not
+        be presented as documentary evidence.
+      </p>
+    </article>
+
+    <article class="ethic">
+      <h3>Context</h3>
+      <p>
+        Personal cinema should reveal complexity
+        rather than manipulate vulnerable people.
+      </p>
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- ARCHIVE -->
+
+<section class="archive" id="archive">
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="section-number">07 / THE ARCHIVE</div>
+
+      <div class="section-title">
+        ORDINARY<br>HUMANS.
+      </div>
+
+    </div>
+
+    <div class="section-note">
+      The archive of Personal Cinema:
+      lives, memories, landscapes and moments
+      captured from the human perspective.
+    </div>
+
+  </div>
+
+
+  <div class="archive-grid">
+
+    <article class="archive-card">
+      <div class="archive-info">
+        <small>01 / BANGLADESH</small>
+        <h3>The River Remembers</h3>
+        <p>A life beside the Meghna.</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <div class="archive-info">
+        <small>02 / MEMORY</small>
+        <h3>The House We Lost</h3>
+        <p>Fragments of a disappearing childhood.</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <div class="archive-info">
+        <small>03 / DIGITAL LIFE</small>
+        <h3>Last Seen Online</h3>
+        <p>A relationship told through messages.</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <div class="archive-info">
+        <small>04 / LANDSCAPE</small>
+        <h3>Where The Forest Ends</h3>
+        <p>A personal journey through the Sundarbans.</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <div class="archive-info">
+        <small>05 / MIGRATION</small>
+        <h3>Going Somewhere</h3>
+        <p>A phone diary of leaving home.</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <div class="archive-info">
+        <small>06 / EXPERIMENTAL</small>
+        <h3>Dream / Reality</h3>
+        <p>A life reconstructed with AI.</p>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- CREATE -->
+
+<section class="participate" id="create">
+
+  <div>
+
+    <div class="section-number">08 / BEGIN</div>
+
+    <h2>
+      WHAT IF<br>
+      <em>YOUR LIFE</em><br>
+      BECAME A FILM?
     </h2>
 
+    <p>
+      You don't need a studio.
+      You don't need permission.
+      You don't need to wait for someone to give you a story.
+      Start with the life you already have.
+    </p>
 
-    <div class="principle-list">
+    <a href="mailto:hello@personalcinema.world" class="cta">
+      Submit Your Film →
+    </a>
 
-
-        <div class="principle">
-
-            <div class="principle-number">
-                01
-            </div>
-
-            <h3>
-                Country before party.
-            </h3>
-
-            <p>
-                Our loyalty is to Bangladesh,
-                its people and its constitutional order.
-            </p>
-
-        </div>
-
-
-        <div class="principle">
-
-            <div class="principle-number">
-                02
-            </div>
-
-            <h3>
-                Citizen before politician.
-            </h3>
-
-            <p>
-                Political authority exists to serve
-                constitutional citizenship.
-            </p>
-
-        </div>
-
-
-        <div class="principle">
-
-            <div class="principle-number">
-                03
-            </div>
-
-            <h3>
-                Constitution before government.
-            </h3>
-
-            <p>
-                Governments operate within constitutional
-                limits.
-            </p>
-
-        </div>
-
-
-        <div class="principle">
-
-            <div class="principle-number">
-                04
-            </div>
-
-            <h3>
-                Rights before power.
-            </h3>
-
-            <p>
-                Political convenience cannot become
-                the measure of constitutional rights.
-            </p>
-
-        </div>
-
-
-        <div class="principle">
-
-            <div class="principle-number">
-                05
-            </div>
-
-            <h3>
-                Accountability before authority.
-            </h3>
-
-            <p>
-                Power without accountability eventually
-                becomes political capture.
-            </p>
-
-        </div>
-
-
-        <div class="principle">
-
-            <div class="principle-number">
-                06
-            </div>
-
-            <h3>
-                Reform through legitimacy.
-            </h3>
-
-            <p>
-                Constitutional change must serve citizens
-                rather than temporary political interests.
-            </p>
-
-        </div>
-
-
-    </div>
+  </div>
 
 </section>
 
 
-<!-- =======================================================
-     FINAL
-======================================================= -->
-
-<section class="join">
-
-    <div class="reveal">
-
-        <div class="section-label">
-            THE FINAL QUESTION
-        </div>
-
-
-        <h2>
-
-            WHO OWNS<br>
-
-            <span>THE FUTURE?</span>
-
-        </h2>
-
-
-        <p>
-
-            Not the government.
-
-            Not the opposition.
-
-            Not a political party.
-
-            Not a political leader.
-
-            The future belongs to the citizens of Bangladesh.
-
-        </p>
-
-
-        <a
-            href="#"
-            class="btn primary"
-        >
-            Join the Civic Conversation →
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
+<!-- FOOTER -->
 
 <footer>
 
-    <div>
-        THE CONSTITUTION IS OURS
+  <div class="footer-top">
+
+    <div class="footer-logo">
+      PERSONAL<br>CINEMA.
     </div>
 
-
-    <div>
-        BANGLADESH
-        <span class="footer-red">●</span>
-        CITIZEN
-        <span class="footer-red">●</span>
-        CONSTITUTION
+    <div class="footer-tag">
+      A global movement for people who transform
+      lived experience into cinematic expression.
     </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <span>PERSONAL CINEMA © 2026</span>
+
+    <span>EVERY LIFE CONTAINS A FILM.</span>
+
+  </div>
 
 </footer>
 
 
-<!-- =======================================================
-     JAVASCRIPT
-======================================================= -->
-
 <script>
 
+/* MANIFESTO SCROLL REVEAL */
 
-/* =========================================================
-   CITIZEN TEST
-========================================================= */
-
-function answer(number,button){
-
-    const result =
-        document.getElementById("testResult");
-
-    const buttons =
-        document.querySelectorAll(".answer");
-
-
-    buttons.forEach(function(btn){
-
-        btn.classList.remove("correct");
-        btn.classList.remove("wrong");
-
-    });
-
-
-    if(number === 3){
-
-        button.classList.add("correct");
-
-        result.style.display="block";
-
-        result.innerHTML=
-
-        "<strong>THE CITIZEN TEST PASSED.</strong><br><br>" +
-
-        "The first question should not be " +
-
-        "'Who wins?' but " +
-
-        "'What happens to the citizen?'" +
-
-        "<br><br>" +
-
-        "A constitutional system should be judged " +
-
-        "by its effect on rights, accountability, " +
-
-        "institutions and citizenship.";
-
-    }
-
-    else{
-
-        button.classList.add("wrong");
-
-        result.style.display="block";
-
-        result.innerHTML=
-
-        "Political advantage may change from one " +
-
-        "government to another. Constitutional " +
-
-        "citizenship must survive both.";
-
-    }
-
-}
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
+const manifestoLines =
+document.querySelectorAll('.manifesto-line');
 
 const observer =
-new IntersectionObserver(
+new IntersectionObserver(entries => {
 
-    entries => {
+  entries.forEach(entry => {
 
-        entries.forEach(entry => {
+    if(entry.isIntersecting){
 
-            if(entry.isIntersecting){
+      entry.target.classList.add('active');
 
-                entry.target.classList.add("visible");
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold:.15
     }
 
-);
+  });
+
+},{
+  threshold:.45
+});
+
+manifestoLines.forEach(line => observer.observe(line));
 
 
-document
-.querySelectorAll(".reveal")
-.forEach(element => {
+/* MOUSE PARALLAX */
 
-    observer.observe(element);
+const orbit =
+document.querySelector('.hero-orbit');
+
+document.addEventListener('mousemove', e => {
+
+  const x =
+    (e.clientX / window.innerWidth - .5) * 30;
+
+  const y =
+    (e.clientY / window.innerHeight - .5) * 30;
+
+  orbit.style.transform =
+    `translate(${x}px,${y}px)`;
 
 });
 
 
-/* =========================================================
-   PARALLAX
-========================================================= */
+/* ARCHIVE CARD INTERACTION */
 
-window.addEventListener(
+document.querySelectorAll('.archive-card')
+.forEach(card => {
 
-    "scroll",
+  card.addEventListener('click', () => {
 
-    function(){
+    card.style.transform =
+      'scale(.97)';
 
-        const hero =
-            document.querySelector(".hero");
+    setTimeout(() => {
 
-        const image =
-            document.querySelector(".landscape");
+      card.style.transform =
+        'scale(1)';
 
+    },150);
 
-        const scroll =
-            window.scrollY;
+  });
 
-
-        hero.style.backgroundPosition =
-            "center " +
-            (scroll * .15) +
-            "px";
+});
 
 
-        image.style.backgroundPosition =
-            "center " +
-            (scroll * .04) +
-            "px";
+/* NAVIGATION FADE */
 
-    }
+let lastScroll = 0;
 
-);
+window.addEventListener('scroll', () => {
+
+  const nav = document.querySelector('nav');
+
+  const current = window.scrollY;
+
+  if(current > lastScroll && current > 100){
+
+    nav.style.opacity = '.25';
+
+  }else{
+
+    nav.style.opacity = '1';
+
+  }
+
+  lastScroll = current;
+
+});
 
 </script>
-
 
 </body>
 </html>
